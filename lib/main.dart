@@ -5,12 +5,18 @@ import 'package:get/get.dart';
 import 'views/splash_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const BooklyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class BooklyApp extends StatefulWidget {
+  const BooklyApp({super.key});
 
+  @override
+  State<BooklyApp> createState() => _BooklyAppState();
+}
+
+class _BooklyAppState extends State<BooklyApp> {
+  late AnimationController animationController;
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
