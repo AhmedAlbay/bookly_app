@@ -2,7 +2,7 @@ import 'package:bookly_app/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'views/splash_view.dart';
+import 'Features/Splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const BooklyApp());
