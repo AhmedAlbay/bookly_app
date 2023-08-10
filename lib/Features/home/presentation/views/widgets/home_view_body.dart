@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_appbar.dart';
 
 import 'package:bookly_app/Features/home/presentation/views/widgets/feature_books_list_view.dart';
@@ -23,6 +24,7 @@ class HomeViewBody extends StatelessWidget {
             'Best Saller',
             style: Styless.tilteMedium,
           ),
+          BestSallerListViewItem(),
         ],
       ),
     );
