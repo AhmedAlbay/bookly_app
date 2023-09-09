@@ -1,10 +1,8 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CustomBookItem extends StatelessWidget {
-  const CustomBookItem({super.key, required this.imageUrl});
+class CustomBookImage extends StatelessWidget {
+  const CustomBookImage({super.key, required this.imageUrl});
   final String imageUrl;
   @override
   Widget build(BuildContext context) {
@@ -13,12 +11,9 @@ class CustomBookItem extends StatelessWidget {
       child: AspectRatio(
           aspectRatio: 2.7 / 4,
           child: CachedNetworkImage(
-            fit: BoxFit.fill,
-            imageUrl: imageUrl,
-            errorWidget: (context ,url , error)=>
-               const Icon(Icons.error)
-            
-          )),
+              fit: BoxFit.fill,
+              imageUrl: imageUrl,
+              errorWidget: (context, url, error) => const Icon(Icons.error))),
     );
   }
 }
