@@ -8,27 +8,25 @@ class BooksAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 8),
-      child: Expanded(
-        child: Row(
-          children: [
-            CustomButton(
-              text: '19.99€',
-              textcolor: Colors.black,
-              backgroungcolor: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  bottomLeft: Radius.circular(16)),
-            ),
-            CustomButton(
-              text: 'Free preview',
-              textcolor: Colors.white,
-              backgroungcolor: Color(0xffEF8262),
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(16),
-                  bottomRight: Radius.circular(16)),
-            ),
-          ],
-        ),
+      child: Row(
+        children: [
+          CustomButton(
+            text: '19.99€',
+            textcolor: Colors.black,
+            backgroungcolor: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                bottomLeft: Radius.circular(16)),
+          ),
+          CustomButton(
+            text: 'Free preview',
+            textcolor: Colors.white,
+            backgroungcolor: Color(0xffEF8262),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(16),
+                bottomRight: Radius.circular(16)),
+          ),
+        ],
       ),
     );
   }
