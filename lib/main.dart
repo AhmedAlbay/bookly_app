@@ -30,7 +30,7 @@ class _BooklyAppState extends State<BooklyApp> {
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchFeatureBooks(),
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(
