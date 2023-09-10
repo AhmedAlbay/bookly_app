@@ -14,15 +14,15 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookView);
+        GoRouter.of(context).push(AppRouter.kBookView,extra: bookModel);
       },
       child: SizedBox(
         height: 150,
         child: Row(
           children: [
             CustomBookImage(
-                imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ??
-                            'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'),
+                imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ??''
+                           ),
             const SizedBox(
               width: 30,
             ),
