@@ -7,4 +7,6 @@ abstract class HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
   Future<Either<Failure, List<BookModel>>> fetchSimilardBooks(
       {required String category});
+      Future<Either<Failure, List<BookModel>>> fetchSearchdBooks({required String searchBy});
 }
+

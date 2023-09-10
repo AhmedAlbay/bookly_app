@@ -17,9 +17,7 @@ class HomeRepoImpl implements HomeRepo {
       List<BookModel> books = [];
       for (var item in data['items']) {
         try {
-          books.add(
-            BookModel.fromJson(item)
-          );
+          books.add(BookModel.fromJson(item));
         } catch (e) {
           books.add(BookModel.fromJson(item));
         }
@@ -27,9 +25,9 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServiceFailure.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
-      return left(ServiceFailure(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -46,17 +44,18 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServiceFailure.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
       return left(
-        ServiceFailure(e.toString()),
+        ServerFailure(e.toString()),
       );
     }
   }
-  
+
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimilardBooks({required String category}) async{
-try {
+  Future<Either<Failure, List<BookModel>>> fetchSimilardBooks(
+      {required String category}) async {
+    try {
       var data = await apiService.get(
           endPoint:
               'volumes?Filtering=free-ebooks&Sorting=newest&q=programming');
@@ -67,11 +66,29 @@ try {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServiceFailure.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
       return left(
-        ServiceFailure(e.toString()),
+        ServerFailure(e.toString()),
       );
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSearchdBooks({required String searchBy})async {
+try {
+      var data = await apiService.get(
+          endPoint: 'volumes?Filtering=free-ebooks&q=$searchBy');
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 }
